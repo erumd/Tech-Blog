@@ -21,7 +21,7 @@ Comment.belongsTo(User, {
 });
 
 Comment.belongsTo(Post, {
-  foreignKey: 'post_id',
+  foreignKey: 'post_id', //need post_id NOT text. dub
 });
 
 // realtionships alread created

@@ -26,7 +26,9 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine('handlebars', hbs.engine);
+// app.engine('handlebars', hbs.engine); THIS WAY OR THE WAY BELOW
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
