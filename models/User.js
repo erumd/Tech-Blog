@@ -24,6 +24,9 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      // validate {
+      //   lens[3],
+      // }
     },
   },
   {
@@ -32,12 +35,16 @@ User.init(
         newUserInput.password = await bcrypt.hash(newUserInput.password, 10);
         return newUserInput;
       },
+      beforeUpdate: async (newUserInput) => {
+        newUserInput.password = await bcrypt.hash(newUserInput.password, 10);
+        return newUserInput;
+      },
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: 'user',
   }
 );
 
