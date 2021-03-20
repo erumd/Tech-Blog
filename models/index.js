@@ -1,11 +1,12 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
-const Session = require('./Session');
+// const Session = require('./Session');
 
-User.hasMany(Post, {
-  foreignKey: 'user_id',
-});
+// realtionships alread created
+// User.hasMany(Post, {
+//   foreignKey: 'user_id',
+// });
 
 Post.belongsTo(User, {
   foreignKey: 'user_id',
@@ -20,18 +21,19 @@ Comment.belongsTo(User, {
 });
 
 Comment.belongsTo(Post, {
-  foreignKey: 'text',
-});
-
-Post.hasMany(Comment, {
   foreignKey: 'post_id',
-  onDelete: 'CASCADE',
-  onUpdate: 'CASCADE',
 });
 
-Session.belongsTo(User, {
-  foreignKey: 'sid',
-});
+// realtionships alread created
+// Post.hasMany(Comment, {
+//   foreignKey: 'post_id',
+//   onDelete: 'CASCADE',
+//   onUpdate: 'CASCADE',
+// });
+
+// Session.belongsTo(User, {
+//   foreignKey: 'sid',
+// });
 
 // tutor do not need it
-module.exports = { User, Post, Comment, Session };
+module.exports = { User, Post, Comment };

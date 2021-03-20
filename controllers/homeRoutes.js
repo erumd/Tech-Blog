@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Comment, User, Post} = require('../models');
+const { Comment, User, Post } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
 
@@ -15,9 +15,7 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const posts = dbPostsData.map((posts) =>
-      posts.get({ plain: true })
-    );
+    const posts = dbPostsData.map((posts) => posts.get({ plain: true }));
     res.render('homepage', {
       posts,
       loggedIn: req.session.loggedIn,
@@ -55,14 +53,14 @@ router.get('/homepage', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });
 
     res.render('homepage', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);

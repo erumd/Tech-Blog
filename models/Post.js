@@ -17,13 +17,13 @@ Post.init(
       allowNull: false,
     },
     body: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
+    // password: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,

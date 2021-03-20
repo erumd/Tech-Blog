@@ -28,16 +28,16 @@ User.init(
   },
   {
     hooks: {
-        beforeCreate: async (newUserInput) => {
-            newUserInput.password = await bcrypt.hash(newUserInput.password, 10);
-            return newUserInput;
-        },
+      beforeCreate: async (newUserInput) => {
+        newUserInput.password = await bcrypt.hash(newUserInput.password, 10);
+        return newUserInput;
+      },
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: 'user',
   }
 );
 
