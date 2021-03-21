@@ -9,6 +9,7 @@ Built a CMS-style blog site similar to a Wordpress site, where developers can pu
 - [Installation](#installation/usage)
 - [Deployment](#deployment)
 - [Questions](#questions)
+- [Contribution](#contribution)
 - [License](#license)
 
 ## Installation/Usage
@@ -34,7 +35,8 @@ If you have any questions or would like to contribute you can view my GitHub acc
 (https://github.com/erumd)
 or email me erumdhukka531@gmail.com.
 
-
+## Contribution
+I want to thank Jasmine, Michael, and Will for their helping me with this project. 
 ## License
 
 MIT License

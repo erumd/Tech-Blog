@@ -15,8 +15,8 @@ const loginFormHandler = async (event) => {
     console.log('fetch');
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      // If successful, redirect the browser to the homepage
+      document.location.replace('/homepage');
     } else {
       const message = await response.json();
       alert(message.message);
@@ -38,7 +38,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/homepage');
     } else {
       const message = await response.json();
       alert(message.message);
