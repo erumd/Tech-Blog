@@ -3,7 +3,7 @@ const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //used the project to help me get get routes we worked on as a group.
-router.get('/', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   try {
     // Get all sessions and JOIN with user data
     const dbPostData = await Post.findAll({
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     const post = dbPostData.map((post) => post.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('/dashboard', {
       post,
       loggedIn: req.session.loggedIn,
     });
@@ -43,17 +43,17 @@ router.get('/homepage', withAuth, async (req, res) => {
   }
 });
 
-// router.get('/homepage', (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
-//   if (req.session.loggedIn) {
-//     res.redirect('/homepage');
-//     return;
-//   }
+router.get('/homepage', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.loggedIn) {
+    res.redirect('/homepage');
+    return;
+  }
 
-//   res.render('login');
-// });
+  res.render('login');
+});
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/dashboard', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       ...req.body,

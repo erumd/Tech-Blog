@@ -60,7 +60,8 @@ router.post('/login', async (req, res) => {
       req.session.userId = dbUserData.id;
       req.session.loggedIn = true;
 
-      res.status(200)
+      res
+        .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
@@ -77,6 +78,7 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+    res.redirect('/login');
   }
 });
 
