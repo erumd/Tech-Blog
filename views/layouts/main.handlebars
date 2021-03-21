@@ -24,12 +24,17 @@
           <!-- Conditionally render login or logout links -->
           {{#if loggedIn}}
             <ul class="nav nav-pills">
-              <li class="nav-item">
+              {{!-- <li class="nav-item">
                 <a class="nav-link active" href="/public/js/homepage.js">Homepage</a> 
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              <a href="/js/profile.js" class="btn btn-secondary  active" role="button" aria-pressed="true">Homepage</a>
+
+              {{!-- <li class="nav-item">
                 <a class="nav-link" id= "logout" href="/">Logout</a>
-              </li>
+              </li> --}}
+              <a href="/js/logout.js" class="btn btn-secondary active" id='logout' role="button" aria-pressed="true">Logout</a>
+              <a href="" class="btn btn-secondary  active" role="button" aria-pressed="true">Dashboard</a>
+              
             </ul>
           {{!-- <ul class="nav nav-pills"> --}}
               {{!-- <li class="nav-item">
@@ -49,15 +54,20 @@
           {{else}}
           {{!-- <a href="public/js/login.js">login</a> --}}
           <ul class="nav nav-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="/login">Homepage</a>
-              </li>
-              <li class="nav-item">
+              {{!-- <li class="nav-item">
+                <a class="nav-link" href="/login">Homepage</a>
+              </li> --}}
+              <a href="/login" class="btn btn-secondary  active" role="button" aria-pressed="true">Homepage</a>
+              {{!-- <li class="nav-item">
                 <a class="nav-link" href="/login">Dashboard</a>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              <a href="/login" class="btn btn-secondary  active" role="button" aria-pressed="true">Dashboard</a>
+              
+              {{!-- <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
-              </li>
+              </li> --}}
+              <a href="/login" class="btn btn-secondary  active" role="button" aria-pressed="true">Login</a>
+              
               
           </ul>
             {{!-- need below to end loop --}}

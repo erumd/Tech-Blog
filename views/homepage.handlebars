@@ -2,18 +2,23 @@
 {{#each posts as |posts| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{!-- {{{get_emoji}}} --}}
-      {{!-- <a href="/project/{{project.id}}">{{project.name}}</a> --}}
-    </h2>
-    <p>
-      {{!-- <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span> --}}
-    </p>
+  
     <p>Created by {{post.username}} on {{format_date post.date_created}}</p>
   </div>
+  <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+   <input class="form-control" id="titleForBlog"type="text" placeholder="Title">
+  </div>
+  {{post.title}}
+ 
+ 
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post</label>
+    <textarea class="form-control" id="postForBlog" rows="6"></textarea>
+  </div>
+</form>
+<button class="primary" id="addPost" >Add Post</button>
   <div class="col-md-7">
     <p>
       {{post.body}}

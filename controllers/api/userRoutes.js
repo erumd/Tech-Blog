@@ -95,7 +95,7 @@ router.get('/', async (req, res) => {
     // Got from project. This is the serialize data so template can read it
     const post = dbUserData.map((post) => post.get({ plain: true }));
 
-    res.render('profile', {
+    res.render('homepage', {
       post,
       loggedIn: req.session.loggedIn,
     });
@@ -106,7 +106,7 @@ router.get('/', async (req, res) => {
 });
 
 // Used from project. This uses withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/homepage', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
@@ -114,7 +114,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('homepage', {
       ...user,
       loggedIn: true,
     });
@@ -126,7 +126,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.loggedIn) {
-    res.redirect('/profile');
+    res.redirect('/homepage');
     return;
   }
 
