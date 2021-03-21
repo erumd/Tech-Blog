@@ -32,8 +32,8 @@
               {{!-- <li class="nav-item">
                 <a class="nav-link" id= "logout" href="/">Logout</a>
               </li> --}}
-              <a href="/logout" class="btn btn-secondary active" id='logout' role="button" aria-pressed="true">Logout</a>
-              <a href="/logout"" class="btn btn-secondary  active" role="button" aria-pressed="true">Dashboard</a>
+              <a href="/login" class="btn btn-secondary active" id='logout' role="button" aria-pressed="true">Logout</a>
+              <a href="/dashboard" class="btn btn-secondary  active" role="button" aria-pressed="true">Dashboard</a>
               
             </ul>
           {{!-- <ul class="nav nav-pills"> --}}
@@ -58,14 +58,7 @@
                 <a class="nav-link" href="/login">Homepage</a>
               </li> --}}
               <a href="/login" class="btn btn-secondary  active" role="button" aria-pressed="true">Homepage</a>
-              {{!-- <li class="nav-item">
-                <a class="nav-link" href="/login">Dashboard</a>
-              </li> --}}
               <a href="/login" class="btn btn-secondary  active" role="button" aria-pressed="true">Dashboard</a>
-              
-              {{!-- <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-              </li> --}}
               <a href="/login" class="btn btn-secondary  active" role="button" aria-pressed="true">Login</a>
               
               
@@ -83,7 +76,7 @@
 
       <!-- Render script for logged in users only -->
       {{#if loggedIn}}
-      <script src="./js/logout.js"></script>
+      <script src="/js/logout.js"></script>
       {{/if}}
     
 </body>
