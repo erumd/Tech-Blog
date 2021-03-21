@@ -12,12 +12,14 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log('fetch');
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/homepage');
+      document.location.replace('/profile');
     } else {
-      alert(response.statusText);
+      const message = await response.json();
+      alert(message.message);
     }
   }
 };
@@ -26,7 +28,6 @@ const signupFormHandler = async (event) => {
   event.preventDefault();
 
   const username = document.querySelector('#username-signup').value.trim();
-  // const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
   if (username && password) {
@@ -37,9 +38,10 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/homepage');
+      document.location.replace('/profile');
     } else {
-      alert(response.statusText);
+      const message = await response.json();
+      alert(message.message);
     }
   }
 };

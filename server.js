@@ -26,14 +26,14 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-// app.engine('handlebars', hbs.engine); THIS WAY OR THE WAY BELOW
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', hbs.engine);
+// app.engine('handlebars', exphbs({ defaultLayout: 'main' })); THIS WAY OR THE WAY BELOW
 
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(routes);
 

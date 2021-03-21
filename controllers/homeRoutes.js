@@ -68,6 +68,7 @@ router.get('/homepage', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  console.log('/login working');
   // If the user is already logged in, redirect the request to another route
   if (req.session.loggedIn) {
     res.redirect('/');

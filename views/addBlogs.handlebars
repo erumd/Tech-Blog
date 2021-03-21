@@ -1,0 +1,27 @@
+{{!-- need for this to come up  --}}
+
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+   <input class="form-control" id="titleForBlog"type="text" placeholder="Title">
+  </div>
+ 
+ 
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post</label>
+    <textarea class="form-control" id="postForBlog" rows="6"></textarea>
+  </div>
+</form>
+<button class="primary" id="addPost" >Add Post</button>
+
+<script>
+    $('#addPost').on('click', function (){
+      //fetch and 
+        fetch('/saveBlog', {
+            method: 'POST',
+            body: JSON.stringify({title: $('#titleForBlog').val(), body: $('#postForBlog').val() }),
+            headers: { 'Content-Type': 'application/json' },
+        }).then(function() {
+        })
+    })
+</script>
