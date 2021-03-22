@@ -5,36 +5,22 @@
   </div>
 </div>
 
-{{!-- {{#if logged_in}} --}}
- {{post.title}}
- {{post.body}}
-
-{{!-- _________________________________________________________________________________Old Post --}}
-{{!-- // Loop over each object in the projects array  --}}
-{{#each posts as |posts| }}
+{{#each post as |post| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
-  
-    <p>Created by {{post.username}} on {{format_date post.date_created}}</p>
+    <h2>
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+      <a href="/post/{{post.id}}">{{post.title}}</a>
+    </h2>
+    <p>Created by {{user.username}} on {{format_date post.createdAt}}</p>
   </div>
-  <form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Title</label>
-   <input class="form-control" id="titleForBlog"type="text" placeholder="Title">
-  </div>
-  {{post.title}}
- 
- 
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Post</label>
-    <textarea class="form-control" id="postForBlog" rows="6"></textarea>
-  </div>
-</form>
-<button class="primary" id="addPost" >Add Post</button>
   <div class="col-md-7">
     <p>
       {{post.body}}
     </p>
   </div>
 </div>
-{{/each}} 
+{{/each}}
+
+<script src="./js/homepage.js"></script> 
+

@@ -1,16 +1,9 @@
-{{!-- need for this to come up  --}}
-
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Title</label>
-   <input class="form-control" id="titleForBlog"type="text" placeholder="Title">
-  </div>
- 
- 
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Post</label>
-    <textarea class="form-control" id="postForBlog" rows="6"></textarea>
-  </div>
-</form>
-<button class="primary" id="addPost" >Add Post</button>
+<div class="text-center">
+  <h2>{{title}}</h2>
+  <p>{{body}}</p>
+  <p>Created by {{user.username}} on {{format_date date_created}}</p>
+  <p>
+    <button class="btn btn-primary">Leave a comment </button>
+  </p>
+</div>
 

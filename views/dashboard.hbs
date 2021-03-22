@@ -1,3 +1,53 @@
-{{#if loggedIn}}
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
 
-<button class="primary" id="addPost" >Add Post</button>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New Post:</h3>
+
+    <form class="form new-project-form">
+
+        <div class="form-group">
+            <label for="post-name">Post Title:</label>
+            <input class="form-input" type="text" id="post-name" name="post-name" placeholder="Post Title"/>
+        </div>
+      
+        <div class="form-group">
+            <label for="project-desc">description:</label>
+            <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+  </div>
+  {{#if post.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Posts:</h3>
+
+    {{#each posts as |posts|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{post.id}}">{{post.title}}</a></h4>
+        <p>{{post.body}}</p>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-secondary" data-id="{{post.id}}">UPDATE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+</div>
+
+ 
+
+<script src="./js/dashboard.js"></script>
