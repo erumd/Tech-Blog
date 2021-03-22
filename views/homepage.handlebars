@@ -1,79 +1,21 @@
-
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, to the Tech Blog {{username}}!</h2>
-  </div>
-</div>
-
-{{#each posts as |posts| }}
+<!-- Loop over each object in the projects array -->
+{{#each projects as |project| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      <a href="/post/{{post.id}}">{{post.title}}</a>
+      
+      <a href="/project/{{project.id}}">{{project.name}}</a>
     </h2>
-    <p>Created by {{user.username}} on {{format_date post.createdAt}}</p>
+    <p>
+      <!-- Pass needed_funding value to the helper function -->
+      <span class="">Post Number:{{format_amount project.needed_funding}}</span>
+    </p>
+    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{post.body}}
+      {{project.description}}
     </p>
   </div>
 </div>
 {{/each}}
-
-{{!-- ____________________________________________________ ADDING BELOW FROM Dashboard --}}
-
-{{!-- <div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div> --}}
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Post:</h3>
-
-    <form class="form new-project-form">
-
-        <div class="form-group">
-            <label for="post-name">Post Title:</label>
-            <input class="form-input" type="text" id="post-name" name="post-name" placeholder="Post Title"/>
-        </div>
-      
-        <div class="form-group">
-            <label for="project-desc">Description:</label>
-            <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Create</button>
-        </div>
-    </form>
-  </div>
-  {{#if post.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Posts:</h3>
-
-    {{#each posts as |posts|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{post.id}}">{{post.title}}</a></h4>
-        <p>{{post.body}}</p>
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-sm btn-secondary" id= "update-button" data-id="{{project.id}}">UPDATE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
-</div>
-
-
-<script src="/js/homepage.js"></script> 
-

@@ -22,7 +22,7 @@ Built a CMS-style blog site similar to a Wordpress site, where developers can pu
 6. In terminal command line run "npm start"
 
 
-## Installation/Usage
+## Deployment
 https://github.com/erumd/Tech-Blog
 
 Heroku Deployment: 

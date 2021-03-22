@@ -1,11 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
-//need to check password
 class User extends Model {
-  checkPassword(loginPass) {
-    return bcrypt.compareSync(loginPass, this.password);
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
@@ -14,32 +13,37 @@ User.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [6],
+        len: [8],
       },
     },
   },
   {
     hooks: {
-      beforeCreate: async (newUserInput) => {
-        newUserInput.password = await bcrypt.hash(newUserInput.password, 10);
-        return newUserInput;
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       },
     },
