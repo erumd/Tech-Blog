@@ -42,6 +42,9 @@ or email me erumdhukka531@gmail.com.
 
 ## Contribution
 I want to thank Jasmine, Michael, and Will for their helping me with this project. 
+
+## Reflections on Project
+This was a hard project to do. This project helped me to get comfortable using the MVC model. There is still more practice i need to get comfortable. I used the mini project from class to help me with this assignment.  
 ## License
 
 MIT License
