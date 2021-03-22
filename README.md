@@ -28,9 +28,9 @@ https://github.com/erumd/Tech-Blog
 Heroku Deployment: 
 https://murmuring-savannah-04457.herokuapp.com/
 
-![Screenshot](./images/login.JPG)
-![Screenshot](./images/dashboard.JPG)
-![Screenshot](./images/homepage.JPG)
+![Screenshot](/images/login.jpg)
+![Screenshot](./images/dashboard.jpg)
+![Screenshot](./images/homepage.jpg)
 
 
 
