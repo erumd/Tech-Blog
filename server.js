@@ -36,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// force true to manually drop database tables
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening ${PORT}`));
 });
