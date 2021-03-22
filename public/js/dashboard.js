@@ -37,6 +37,23 @@ const delButtonHandler = async (event) => {
   }
 };
 
+// adding update button on my own
+const updateButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-class')) {
+    const id = event.target.getAttribute('data-class');
+
+    const response = await fetch(`/api/projects/${id}`, {
+      method: 'PUT',
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to update project');
+    }
+  }
+};
+
 document
   .querySelector('.create-button')
   .addEventListener('submit', newFormHandler);
@@ -44,3 +61,7 @@ document
 document
   .querySelector('.post-list')
   .addEventListener('click', delButtonHandler);
+
+document
+  .querySelector('#update-button')
+  .addEventListener('click', updateButtonHandler);

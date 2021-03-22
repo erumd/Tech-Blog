@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     const post = dbPostData.map((post) => post.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('dashboard', {
       post,
       loggedIn: req.session.loggedIn,
     });
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/homepage', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
@@ -34,7 +34,7 @@ router.get('/homepage', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('homepage', {
+    res.render('dashboard', {
       ...user,
       loggedIn: true,
     });
@@ -68,19 +68,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Post.destroy({
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!projectData) {
+    if (!postData) {
       res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }

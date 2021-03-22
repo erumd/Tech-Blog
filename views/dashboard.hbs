@@ -35,11 +35,11 @@
         <h4><a href="/project/{{post.id}}">{{post.title}}</a></h4>
         <p>{{post.body}}</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-secondary" data-id="{{post.id}}">UPDATE</button>
+      <div class="col-md-2">
+        <button class="btn btn-sm btn-secondary" id= "update-button" data-id="{{project.id}}">UPDATE</button>
       </div>
     </div>
     {{/each}}
