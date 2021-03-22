@@ -25,7 +25,10 @@ Built a CMS-style blog site similar to a Wordpress site, where developers can pu
 ## Installation/Usage
 https://github.com/erumd/Tech-Blog
 
-Heroku Deployment: https://fierce-forest-16736.herokuapp.com/ 
+Heroku Deployment: 
+<!-- https://fierce-forest-16736.herokuapp.com/  -->
+
+https://murmuring-savannah-04457.herokuapp.com/
 
 ![Screenshot](./images/techBlog.JPG)
 
